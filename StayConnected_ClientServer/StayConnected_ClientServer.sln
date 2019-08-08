@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayConnected_Client", "StayConnected_Client\StayConnected_Client.csproj", "{BB62EF17-EEB2-45F7-B7CA-39197A780481}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayConnected_Server", "StayConnected_Server\StayConnected_Server.csproj", "{5D68A323-4F70-45B6-9EBC-9ADB52F8FF54}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB62EF17-EEB2-45F7-B7CA-39197A780481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB62EF17-EEB2-45F7-B7CA-39197A780481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB62EF17-EEB2-45F7-B7CA-39197A780481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB62EF17-EEB2-45F7-B7CA-39197A780481}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D68A323-4F70-45B6-9EBC-9ADB52F8FF54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D68A323-4F70-45B6-9EBC-9ADB52F8FF54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D68A323-4F70-45B6-9EBC-9ADB52F8FF54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D68A323-4F70-45B6-9EBC-9ADB52F8FF54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

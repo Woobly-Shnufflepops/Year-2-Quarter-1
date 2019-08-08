@@ -1,0 +1,114 @@
+Matthew Powers
+Question 1:
+
+USE Northwind
+
+SELECT TOP 1 FirstName, LastName, COUNT(OrderID) AS Total
+FROM Employees INNER JOIN Orders ON Employees.EmployeeID = Orders.EmployeeID
+GROUP BY FirstName, LastName
+ORDER BY Total DESC;
+
+Question 2:
+
+USE Northwind
+
+SELECT TOP 1 FirstName, LastName, SUM([Order Details].Quantity * [Order Details].UnitPrice) AS Total
+FROM Employees INNER JOIN Orders ON Employees.EmployeeID = Orders.EmployeeID
+INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
+GROUP BY FirstName, LastName
+ORDER BY Total DESC;
+
+Question 3:
+
+USE Northwind
+
+SELECT TOP 1 ContactName, COUNT(OrderID) AS Total
+FROM Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+GROUP BY ContactName
+ORDER BY Total DESC;
+
+Question 4:
+
+USE Northwind
+
+SELECT TOP 1 ContactName, SUM([Order Details].Quantity * [Order Details].UnitPrice) AS Total
+FROM Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
+GROUP BY ContactName
+ORDER BY Total DESC;
+
+Question 5:
+
+USE Northwind
+
+SELECT TOP 1 City, COUNT(ShipCity) AS Total
+FROM Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+GROUP BY City
+ORDER BY Total DESC;
+
+Question 6:
+
+USE Northwind
+
+SELECT YEAR(OrderDate) AS OrderYear, SUM([Order Details].UnitPrice * [Order Details].Quantity) AS Total
+FROM Orders INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
+WHERE OrderDate BETWEEN '1997-01-01' AND '1997-12-31'
+GROUP BY YEAR(OrderDate)
+ORDER BY Total DESC;
+
+Question 7:
+
+USE Northwind
+
+SELECT TOP 1 FirstName, LastName, YEAR(OrderDate) AS OrderYear, SUM([Order Details].UnitPrice * [Order Details].Quantity) AS Total
+FROM Orders INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
+INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+WHERE OrderDate BETWEEN '1997-01-01' AND '1997-12-31'
+GROUP BY FirstName, LastName, YEAR(OrderDate)
+ORDER BY Total DESC;
+
+Question 8:
+
+USE Northwind
+
+SELECT TOP 1 ProductName, SUM([Order Details].UnitPrice * [Order Details].Quantity) AS Total
+FROM Orders INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
+INNER JOIN Products ON [Order Details].ProductID = Products.ProductID
+WHERE OrderDate BETWEEN '1997-01-01' AND '1997-12-31'
+GROUP BY ProductName
+ORDER BY Total DESC;
+
+Question 9:
+
+USE Northwind
+
+SELECT ShippedDate, RequiredDate
+FROM Orders
+WHERE ShippedDate > RequiredDate
+GROUP BY ShippedDate, RequiredDate
+ORDER BY RequiredDate DESC;
+
+9a:
+
+USE Northwind
+
+SELECT COUNT(OrderID) AS TotalLateShipments
+FROM Orders
+WHERE ShippedDate > RequiredDate
+ORDER BY TotalLateShipments;
+
+9b:
+
+USE Northwind
+
+SELECT TOP 1 ShippedDate
+FROM Orders
+WHERE ShippedDate > RequiredDate
+ORDER BY ShippedDate DESC;
+
+Question 10:
+
+USE Northwind
+
+SELECT AVG(DATEDIFF(DAY, OrderDate, ShippedDate)) AS OrderShippedDiff
+FROM Orders;

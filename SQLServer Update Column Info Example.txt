@@ -1,0 +1,4 @@
+USE Northwind
+
+UPDATE Customers
+SET FName = LEFT([ContactName], CHARINDEX(' ', [ContactName])-1);

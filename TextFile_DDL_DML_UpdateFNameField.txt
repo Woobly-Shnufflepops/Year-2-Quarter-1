@@ -1,0 +1,22 @@
+' use this to create new column to hold parsed name
+' use in any Entity Table for parsing Name data
+
+USE Northwind
+ALTER TABLE Customers
+ADD FName varchar(30);
+
+
+' use this to verify the pattern of data in ContactName field
+' and what delimiter is used!
+
+USE Northwind
+SELECT ContactName from Customers;
+' you can also use this to find the number of records to update
+' write it down on the cocktail napkin
+
+' this is tested
+' correctly parsed First name data from ContactName and updated the 
+' FNAME field that we created
+USE Northwind
+UPDATE Customers SET FName = LEFT([ContactName],CharIndex(' ',[ContactName])-1);
+
